@@ -1,30 +1,44 @@
+<!--
+	Coding Dojo > Pre-Bootcamp > Intro to Web Development
+	Ninja Game
+	Viriglio D. Cabading
+	October 06, 2021
+-->
+
 <html>
-<body>
-	<div id='background'>
-        <div id='character' style='position:absolute; top:100px; left:450px; background-image: url("img/down1.png"); width:59px; height:86px;'></div>
-    </div>
-    <script type="text/javascript">
-	    var leftValue = 450, topValue = 100;
+	<body>
+		<div id='background'>											<!-- Establish Ninja Character-->
+			<div id='character' style='position:absolute; top:100px; left:450px; background-image: url("img/down1.png"); 
+			width:59px; height:86px;'></div>
+		</div>
 
-    	function update(){
-    		document.getElementById("character").style.left = leftValue+"px";
-    		document.getElementById("character").style.top = topValue+"px";
-    	}
+		<script type="text/javascript">                                 // Javascript area
+			var leftValue = 450, topValue = 100;                        // Establish Variables
 
-    	document.onkeydown = function(e){
-    		console.log(e);
-    		if(e.keyCode == 37) { // LEFT
-    			leftValue = leftValue - 10;
-    		}
-    		else if (e.keyCode == 39) { // RIGHT
-    			leftValue = leftValue + 10;    		
-    		}
-    		else if (e.keyCode == 40) { // DOWN
-				topValue = topValue + 10;
-    		}
-    		// ...
-    		update();
-    	}
-    </script>
-</body>
+			function updateNinja(){										// Function to redraw ninja character
+				document.getElementById("character").style.left = leftValue+"px";
+				document.getElementById("character").style.top = topValue+"px";
+				console.log("leftValue", leftValue);
+				console.log("topValue", topValue);
+			}
+
+			document.onkeydown = function(e){							// Detects if a key is pressed
+				console.log(e);
+				if(e.keyCode == 37) { 									// If press left arrow
+					leftValue = leftValue - 10;							// Move Ninja LEFT
+				}
+				else if (e.keyCode == 39) { 							// If press right arrow
+					leftValue = leftValue + 10;    						// Move Ninja RIGHT
+				}
+				else if (e.keyCode == 40) { 							// If press Down arrow
+					topValue = topValue + 10;							// Move Ninja DOWN
+				}
+				else if (e.keyCode == 38) {								// If press Up Arrow
+					topValue = topValue - 10;							// Move Ninja Up
+				}
+				
+				updateNinja();											// Redraw the Ninja
+			}
+		</script>
+	</body>
 </html>
