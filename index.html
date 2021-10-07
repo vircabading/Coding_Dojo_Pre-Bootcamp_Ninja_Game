@@ -13,11 +13,15 @@
 		</div>
 
 		<script type="text/javascript">                                 // Javascript area
-			var leftValue = 450, topValue = 100;                        // Establish Variables
+			var leftValue = 450;					                        // Establish Variables
+			var topValue = 100;
+			var direction = 'down';
 
 			function updateNinja(){										// Function to redraw ninja character
 				document.getElementById("character").style.left = leftValue+"px";
 				document.getElementById("character").style.top = topValue+"px";
+				document.getElementById("character").style.backgroundImage = "url('img/" + direction + "1.png')";
+
 				console.log("leftValue", leftValue);
 				console.log("topValue", topValue);
 			}
@@ -26,17 +30,21 @@
 				console.log(e);
 				if(e.keyCode == 37 && leftValue > 0) {					// If press left arrow
 					leftValue = leftValue - 10;							// Move Ninja LEFT
+					direction = 'left';
 				}
 				else if (e.keyCode == 39 && leftValue < 500) { 			// If press right arrow
 					leftValue = leftValue + 10;    						// Move Ninja RIGHT
+					direction = 'right';
 				}
 				else if (e.keyCode == 40 && topValue < 500) { 			// If press Down arrow
 					topValue = topValue + 10;							// Move Ninja DOWN
+					direction = 'down';
 				}
 				else if (e.keyCode == 38 && topValue > 0) {				// If press Up Arrow
 					topValue = topValue - 10;							// Move Ninja Up
+					direction = 'top';
 				}
-				
+
 				updateNinja();											// Redraw the Ninja
 			}
 		</script>
