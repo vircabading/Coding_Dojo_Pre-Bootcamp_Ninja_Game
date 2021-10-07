@@ -37,6 +37,20 @@
 					topValue = topValue - 10;							// Move Ninja Up
 				}
 				
+				if (leftValue < 50){									// Create boundary on left side
+					leftValue = 50;
+				}
+				else if (leftValue > 750) {								// Create boundary on right side
+					leftValue = 750;
+				}
+
+				if (topValue < 50) {									// Create boundary at the top
+					topValue = 50;
+				}
+				else if (topValue > 450) {								// Create boundary at the bottom
+					topValue = 450;
+				}
+				
 				updateNinja();											// Redraw the Ninja
 			}
 		</script>
