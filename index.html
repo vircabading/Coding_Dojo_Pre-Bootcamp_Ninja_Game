@@ -13,14 +13,15 @@
 		</div>
 
 		<script type="text/javascript">                                 // Javascript area
-			var leftValue = 450;					                        // Establish Variables
+			var leftValue = 450;					                    // Establish Variables
 			var topValue = 100;
 			var direction = 'down';
+			var stepValue = 1;
 
 			function updateNinja(){										// Function to redraw ninja character
 				document.getElementById("character").style.left = leftValue+"px";
 				document.getElementById("character").style.top = topValue+"px";
-				document.getElementById("character").style.backgroundImage = "url('img/" + direction + "1.png')";
+				document.getElementById("character").style.backgroundImage = "url('img/" + direction + stepValue + ".png')";
 
 				console.log("leftValue", leftValue);
 				console.log("topValue", topValue);
@@ -45,6 +46,8 @@
 					direction = 'top';
 				}
 
+				stepValue = (stepValue % 2) + 1;						// Alternate the step value between 1 and 2
+																		//     so that Ninja looks like its walking
 				updateNinja();											// Redraw the Ninja
 			}
 		</script>
